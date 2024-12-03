@@ -4,7 +4,10 @@ import { useEditor, EditorContent } from '@tiptap/react';
 
 import StarterKit from '@tiptap/starter-kit';
 
+import { Color } from '@tiptap/extension-color'
+
 import Underline from '@tiptap/extension-underline';
+import Highlight from '@tiptap/extension-highlight';
 
 import TextStyle from '@tiptap/extension-text-style'
 import FontFamily from '@tiptap/extension-font-family';
@@ -59,6 +62,8 @@ export const Editor = () => {
         },
         extensions: [
             StarterKit,
+            Color,
+            Highlight.configure({ multicolor: true }),
             FontFamily,
             TextStyle,
             Underline,
