@@ -4,6 +4,8 @@ import { useEditor, EditorContent } from '@tiptap/react';
 
 import StarterKit from '@tiptap/starter-kit';
 
+import Underline from '@tiptap/extension-underline';
+
 import Image from '@tiptap/extension-image';
 import ImageResize from 'tiptap-extension-resize-image';
 
@@ -54,6 +56,7 @@ export const Editor = () => {
         },
         extensions: [
             StarterKit,
+            Underline,
             Image,
             ImageResize,
             Table,
