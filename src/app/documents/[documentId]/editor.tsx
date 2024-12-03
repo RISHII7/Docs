@@ -6,6 +6,9 @@ import StarterKit from '@tiptap/starter-kit';
 
 import Underline from '@tiptap/extension-underline';
 
+import TextStyle from '@tiptap/extension-text-style'
+import FontFamily from '@tiptap/extension-font-family';
+
 import Image from '@tiptap/extension-image';
 import ImageResize from 'tiptap-extension-resize-image';
 
@@ -56,6 +59,8 @@ export const Editor = () => {
         },
         extensions: [
             StarterKit,
+            FontFamily,
+            TextStyle,
             Underline,
             Image,
             ImageResize,
