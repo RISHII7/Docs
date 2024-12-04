@@ -26,6 +26,7 @@ import TaskItem from '@tiptap/extension-task-item';
 import TaskList from '@tiptap/extension-task-list';
 
 import { fontSizeExtension } from '@/extensions/font-size';
+import { LineHeightExtension } from '@/extensions/line-height';
 
 import { useEditorStore } from '@/store/use-editor-store';
 
@@ -66,6 +67,7 @@ export const Editor = () => {
         },
         extensions: [
             StarterKit,
+            LineHeightExtension.configure({ types: ["paragraph", "heading"], defaultLineHeight: "normal", }),
             fontSizeExtension,
             TextAlign.configure({ types: ['heading', 'paragraph'] }),
             Link.configure({
