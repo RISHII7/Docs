@@ -25,6 +25,8 @@ import TableHeader from '@tiptap/extension-table-header';
 import TaskItem from '@tiptap/extension-task-item';
 import TaskList from '@tiptap/extension-task-list';
 
+import { fontSizeExtension } from '@/extensions/font-size';
+
 import { useEditorStore } from '@/store/use-editor-store';
 
 
@@ -64,6 +66,7 @@ export const Editor = () => {
         },
         extensions: [
             StarterKit,
+            fontSizeExtension,
             TextAlign.configure({ types: ['heading', 'paragraph'] }),
             Link.configure({
                 openOnClick: true,
