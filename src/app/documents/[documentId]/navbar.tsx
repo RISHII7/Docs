@@ -179,7 +179,7 @@ export const Navbar = () => {
                                             </MenubarItem>
                                         </MenubarSubContent>
                                     </MenubarSub>
-                                    <MenubarItem>
+                                    <MenubarItem onClick={() => editor?.chain().focus().unsetAllMarks().run()}>
                                         <RemoveFormattingIcon className="size-4 mr-2" />
                                         Clear Formatting
                                     </MenubarItem>
