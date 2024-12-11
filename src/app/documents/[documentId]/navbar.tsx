@@ -21,9 +21,11 @@ import {
     UnderlineIcon,
     Undo2Icon
 } from "lucide-react";
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 
 import { useEditorStore } from "@/store/use-editor-store";
 
+import { Avatars } from "@/app/documents/[documentId]/avatars";
 import { DocumentInput } from "@/app/documents/[documentId]/document-input";
 
 import {
@@ -38,7 +40,6 @@ import {
     MenubarSubTrigger,
     MenubarTrigger
 } from "@/components/ui/menubar"
-import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 
 
 export const Navbar = () => {
@@ -230,6 +231,7 @@ export const Navbar = () => {
             </div>
             <div className="flex gap-3 items-center">
                 <div className="hidden lg:flex">
+                    <Avatars />
                     <OrganizationSwitcher
                         afterCreateOrganizationUrl="/"
                         afterLeaveOrganizationUrl="/"
