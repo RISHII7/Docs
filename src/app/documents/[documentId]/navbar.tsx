@@ -40,6 +40,7 @@ import {
     MenubarSubTrigger,
     MenubarTrigger
 } from "@/components/ui/menubar"
+import { Inbox } from "./inbox";
 
 
 export const Navbar = () => {
@@ -230,6 +231,7 @@ export const Navbar = () => {
                 </div>
             </div>
             <div className="flex gap-3 items-center">
+                <Inbox />
                 <div className="hidden lg:flex">
                     <Avatars />
                     <OrganizationSwitcher
