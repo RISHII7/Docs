@@ -16,13 +16,15 @@ import {
     AlertDialogTitle, 
     AlertDialogTrigger 
 } from "@/components/ui/alert-dialog";
+import { toast } from "sonner";
 
 interface RemoveDialogProps {
     documentId: Id<"documents">;
     children: React.ReactNode;
+    name: string;
 };
 
-export const RemoveDialog = ({ children, documentId }: RemoveDialogProps) => {
+export const RemoveDialog = ({ children, documentId, name }: RemoveDialogProps) => {
 
     const [isRemoving, setIsRemoving] = useState(false);
 
@@ -50,6 +52,8 @@ export const RemoveDialog = ({ children, documentId }: RemoveDialogProps) => {
                             e.stopPropagation();
                             setIsRemoving(true);
                             remove({ id: documentId })
+                                .catch(() => toast.error("Something went wrong"))
+                                .then(() => toast.success(`${name} Removed`))
                                 .finally(() => setIsRemoving(false))
                         }}
                     >

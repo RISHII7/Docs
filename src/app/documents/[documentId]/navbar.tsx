@@ -38,6 +38,7 @@ import {
     MenubarSubTrigger,
     MenubarTrigger
 } from "@/components/ui/menubar"
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 
 
 export const Navbar = () => {
@@ -226,6 +227,15 @@ export const Navbar = () => {
                         </Menubar>
                     </div>
                 </div>
+            </div>
+            <div className="flex gap-3 items-center">
+                <OrganizationSwitcher 
+                    afterCreateOrganizationUrl="/"
+                    afterLeaveOrganizationUrl="/"
+                    afterSelectOrganizationUrl="/"
+                    afterSelectPersonalUrl="/"
+                />
+                <UserButton />
             </div>
         </nav>
     );
