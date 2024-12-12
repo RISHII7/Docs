@@ -12,7 +12,7 @@ import { LiveblocksProvider, RoomProvider, ClientSideSuspense } from "@liveblock
 
 import { FullscreenLoader } from "@/components/fullscreen-loader";
 
-type User = { id: string; name: string; avatar: string; }
+type User = { id: string; name: string; avatar: string; color: string }
 
 export function Room({ children }: { children: ReactNode }) {
     const params = useParams();
