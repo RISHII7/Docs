@@ -51,6 +51,7 @@ export const Editor = ({ initialContent }: EditorProps) => {
     const rightMargin = useStorage((root) => root.rightMargin) ?? RIGHT_MARGIN_DEFAULT;
 
     const editor = useEditor({
+        autofocus: true,
         immediatelyRender: false,
         onCreate({ editor }) {
             setEditor(editor);
