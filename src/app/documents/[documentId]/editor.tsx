@@ -30,17 +30,25 @@ import { fontSizeExtension } from '@/extensions/font-size';
 import { LineHeightExtension } from '@/extensions/line-height';
 
 import { useEditorStore } from '@/store/use-editor-store';
+import { LEFT_MARGIN_DEFAULT, RIGHT_MARGIN_DEFAULT } from '@/constants/margins';
 
 import { Ruler } from './ruler';
 import { Threads } from './threads';
 
 
-export const Editor = () => {
-    const { setEditor } = useEditorStore();
-    const liveblocks = useLiveblocksExtension();
+interface EditorProps {
+    initialContent?: string | undefined;
+};
 
-    const leftMargin = useStorage((root) => root.leftMargin);
-    const rightMargin = useStorage((root) => root.rightMargin);
+export const Editor = ({ initialContent }: EditorProps) => {
+    const { setEditor } = useEditorStore();
+    const liveblocks = useLiveblocksExtension({
+        initialContent,
+        offlineSupport_experimental: true,
+    });
+
+    const leftMargin = useStorage((root) => root.leftMargin) ?? LEFT_MARGIN_DEFAULT;
+    const rightMargin = useStorage((root) => root.rightMargin) ?? RIGHT_MARGIN_DEFAULT;
 
     const editor = useEditor({
         immediatelyRender: false,
@@ -70,7 +78,7 @@ export const Editor = () => {
         },
         editorProps: {
             attributes: {
-                style: `padding-left: ${leftMargin ?? 56}px; padding-right: ${rightMargin ?? 56}px;`,
+                style: `padding-left: ${leftMargin}px; padding-right: ${rightMargin}px;`,
                 class: "focus:outline-none print:border-0 bg-white border border-[#C7C7C7] flex flex-col min-h-[1054px] w-[816px] pt-10 pr-14 pb-10 cursor-text"
             }
         },
